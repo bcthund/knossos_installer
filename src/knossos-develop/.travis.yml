@@ -1,0 +1,28 @@
+language: generic
+branches:
+  only:
+    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
+
+sudo: required
+
+matrix: 
+  include:
+    - os: osx
+
+env:
+  - secure: "fMo6M/KJV0QvkTo9rvksH3gDirKiDQlkOj5bwP0VBTdQPt0l/4Top9n9ZZ4ZZqtUBo6fACsbCaBV7WYSpvE3q0iPBRV3a07vyVnHy5O5+p8NZI+FJWHUhAEZKQHTVQztBLeDzlgoP4JNHPtVrwSp+EQO7Ci7bpmKpFR2uZi+Gcg="
+
+before_install:
+- cd releng/config
+- openssl aes-256-cbc -K $encrypted_7dc0ff3d6916_key -iv $encrypted_7dc0ff3d6916_iv -in ci.tar.enc -out ci.tar -d
+- tar -xf ci.tar
+- cd ../..
+
+install:
+- bash ./releng/ci/travis_provision.sh
+
+script:
+- bash ./releng/ci/travis.sh macos
+
+after_success:
+- bash ./releng/ci/travis_upload.sh

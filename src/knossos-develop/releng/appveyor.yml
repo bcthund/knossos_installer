@@ -1,0 +1,19 @@
+version: 0.8.0-dev+appv.{build}
+pull_requests:
+  do_not_increment_build_number: true
+
+skip_non_tags: true
+clone_depth: 1
+clone_folder: C:\knossos
+install:
+- cmd: cd C:\knossos && releng\ci\appveyor_install.bat
+
+build_script:
+- cmd: cd C:\knossos && releng\ci\appveyor_build.bat
+
+after_build:
+- cmd: cd C:\knossos && releng\ci\appveyor_upload.bat
+
+environment:
+  GITHUB_TOKEN:
+    secure: KSxLsPU0J4eghWiI/gya3J97Ld00RH5AYm3WFI542SFVXO32t5ml4VJ+g0DeJSuE

@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+six = "*"
+requests = "*"
+semantic-version = ">==2.8.4"
+raven = "*"
+pyqt5 = "*"
+requests-toolbelt = "*"
+ply = "*"
+token-bucket = "*"
+pywin32 = {version = "*",sys_platform = "== 'win32'"}
+etaprogress = {version = "*",sys_platform = "== 'win32'"}
+dmgbuild = {version = "*",sys_platform = "== 'darwin'"}
+pyinstaller = {version = "*",sys_platform = "!= 'win32'"}
+pyqtwebengine = "*"
+
+[requires]
+python_version = "3.8"

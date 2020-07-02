@@ -1,0 +1,1761 @@
+@import url(./bootstrap.min.css);
+@import url(./font-awesome.min.css);
+
+/* -------------------------- Basic stuff -----------------------------------------------------*/
+
+select {
+    width: 100%;
+    color: #000;
+}
+
+input {
+    max-width: 100%;
+}
+
+iframe {
+    border: 0;
+}
+
+/* -------------------------- Settings for container elements ----------------------------------*/
+
+.body-container {
+    padding: 7px;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background-color: #1c1c1c;
+}
+
+#loading {
+    color: #fff;
+}
+
+.info-page {
+    padding: 15px;
+    color: #fff;
+}
+
+.settings-container {
+    max-width: 98%;
+}
+
+.settings-exp {
+    padding: 5px;
+    width: 80%;
+    font-size: smaller;
+    color: grey;
+
+}
+
+.dev-instructions {
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+/* -------------------------- Settings for top bar elements ----------------------------------*/
+
+#top-bar {
+    position: relative;
+    background-color: #1c1c1c;
+    height: 40px;
+    box-shadow: inset 0px 7px 10px -10px rgba(179,179,179,1),
+                inset -7px 0px 10px -10px rgba(179,179,179,1),
+                inset 7px 0px 10px -10px rgba(179,179,179,1),
+                0px 7px 15px 0px rgba(0,0,0,1);
+}
+
+.top-right-btns {
+    position: absolute;
+}
+
+.mod-search {
+    padding-top: 8px;
+    padding-left: 8px;
+    float: left;
+}
+
+.pull-right {
+    vertical-align: middle;
+    right: 10px;
+    z-index: 1;
+}
+
+.top-btn {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 0px;
+    width: 40px;
+    font-family: Arial, Tahoma, Verdana, FreeSans, sans-serif;
+    font-size: 20px;
+    color: #828282;
+    text-decoration: none;
+    height: 40px;
+    margin-top: 3px;
+}
+
+.top-btn:hover {
+    text-decoration: none;
+}
+
+.top-btn.active {
+    outline: none;
+    text-decoration: none;
+}
+.top-btn:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+.help-image {
+    content: url(../images/icon-help.png);
+    height: 25px;
+    vertical-align: middle;
+    padding-top: 3px;
+}
+
+.top-btn:hover .help-image {
+    content: url(../images/icon-help-h.png);
+}
+
+.top-btn.active .help-image {
+    content: url(../images/icon-help-a.png);
+}
+
+.update-image {
+    content: url(../images/icon-update.png);
+    height: 25px;
+    vertical-align: middle;
+    padding-top: 3px;
+}
+
+.top-btn:hover .update-image {
+    content: url(../images/icon-update-h.png);
+}
+
+.top-btn.active .update-image {
+    content: url(../images/icon-update-a.png);
+}
+
+.settings-image {
+    content: url(../images/icon-settings.png);
+    height: 25px;
+    vertical-align: middle;
+    padding-top: 3px;
+}
+
+.top-btn:hover .settings-image {
+    content: url(../images/icon-settings-h.png);
+}
+
+.top-btn.active .settings-image {
+    content: url(../images/icon-settings-a.png);
+}
+
+.text-marquee {
+    float: left;
+    width: calc(100% - 320px);
+    height: 25px;
+    margin-top: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+    line-height: 25px;
+    white-space: nowrap;
+    text-overflow: clip;
+    overflow: hidden;
+    color: #ababab;
+    box-shadow: inset 0px 12px 5px -12px rgba(0,0,0,1),
+                inset 0px -12px 5px -12px rgba(0,0,0,1),
+                inset 12px 0px 5px -12px rgba(0,0,0,1),
+                inset -12px 0px 5px -12px rgba(0,0,0,1);
+}
+
+.text-marquee span {
+    position: relative;
+    right: -101% /*Can translate this property by % to scroll the text from right to left.
+                The difficulty will be calculating the % at which the entire span will
+                have scrolled out of view before we reset and start it again.*/
+}
+
+.welcome-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 78px;
+    background: rgba(0,0,0,0.6);
+    z-index: 999;
+}
+
+.welcome-login {
+    height: 165px;
+    padding-top: 10px;
+}
+
+.login-form {
+    float: right;
+    width: 65%;
+}
+.login-instructions {
+    float: left;
+    width: 35%;
+}
+
+.login-instructions p {
+    margin-bottom: 3px;
+}
+
+.welcome-login input.neb-input {
+    width: 100%;
+}
+
+.welcome-label {
+    width: 100px;
+}
+
+#welcome-page h1 {
+    font-size: 1.5em;
+}
+
+#welcome-page h2 {
+    font-size: 1.2em;
+}
+
+#welcome-page hr {
+    margin-bottom: 5px;
+}
+
+#welcome-footer {
+    font-size: 0.75em;
+}
+
+/* ----------------------------- This is the filter rollout button section. ------------------------------- */
+
+.filter-container {
+    width: 19px;
+    height: 13px;
+    top: 56px;
+    right: 9px;
+    position: absolute;
+}
+
+.filterbtn {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 0px;
+    width: 19px;
+    font-family: Arial, Tahoma, Verdana, FreeSans, sans-serif;
+    font-size: 20px;
+    color: #828282;
+    text-decoration: none;
+    height: 13px;
+    background-image: url(../images/icon-filter.png);
+    border: none;
+    background-color: transparent;
+}
+
+.filter-image {
+    background-image: url(../images/icon-filter.png);
+}
+
+.filterbtn.filter-active {
+    background-image: url(../images/icon-filter-a.png);
+    outline: none;
+}
+
+.filterbtn:active {
+    background-image: url(../images/icon-filter-a.png);
+    outline: none;
+}
+
+.filterbtn:focus {
+    background-image: url(../images/icon-filter.png);
+    outline: none;
+}
+
+.filterbtn.filter-active:focus {
+    background-image: url(../images/icon-filter-a.png);
+    outline: none;
+}
+
+.filterbtn:hover {
+    background-image: url(../images/icon-filter-h.png);
+    outline: none;
+}
+
+.filter-content {
+    padding: 5px;
+    position: absolute;
+    background-color: #131313;
+    min-width: 125px;
+    box-shadow: 6px 6px 8px 0px rgba(0,0,0,1);
+    z-index: 997;
+    border: 1px solid black;
+}
+
+.filterbtn:focus ~ .filter-content {
+    display: block;
+}
+
+.filter-content-btn {
+    background-color: transparent;
+    color: #828282;
+    padding: 3px;
+    font-size: 16px;
+    font-weight: normal;
+    border: none;
+    cursor: pointer;
+    width: 125px;
+    height: 19px;
+    outline: none;
+    text-align: left;
+    z-index: 999;
+}
+
+.filter-content-btn:active {
+    color: white;
+}
+
+.filter-content-btn.selected {
+    color: white;
+    font-weight: bold;
+}
+
+.filter-lines {
+    width: 125px;
+    z-index: 998;
+}
+
+.filter-lines:hover {
+    background-color: rgba(117,169,210,0.3);
+    box-shadow: inset 0px 0px 16px 1px rgba(117,170,210,1);
+}
+
+.filter-lines:hover * {
+    color: rgb(220, 220, 220);
+}
+
+.show {
+    display: block;
+}
+
+/* -------------------------- Settings for tab bar elements ----------------------------------*/
+
+#tab-bar {
+    background-color: #1c1c1c;
+    height: 25px;
+    margin-right: 25px;
+    margin-left: 9px;
+    margin-top: 3px;
+}
+
+#details-tab-bar {
+    text-align: center;
+    margin-top: 3px;
+}
+
+#details-tab-bar .main-btn{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.main-btn {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    font-family: Arial, Tahoma, Verdana, FreeSans, sans-serif;
+    font-size: 20px;
+    color: #828282;
+    text-decoration: none !important;
+    height: 25px;
+}
+
+.main-btn:hover {
+    color: #ababab;
+}
+
+.main-btn.active {
+    outline: none;
+    color: #3c991c;
+}
+.main-btn:focus {
+    outline: none;
+    color: #3c991c;
+}
+
+.main-btn .icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+}
+
+#tab-bar-misc {
+    position: absolute;
+    top: 58px;
+    height: 25px;
+}
+
+.keep-left {
+    right: 35px;
+}
+
+.keep-right {
+    right: 10px;
+}
+
+.tab-misc-btn {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    font-family: Arial, Tahoma, Verdana, FreeSans, sans-serif;
+    /*font-size: 20px;*/
+    color: #828282;
+    text-decoration: none !important;
+    height: 25px;
+}
+
+.screenshots-image {
+    content: url(../images/icon-screenshots.png);
+    height: 16px;
+    /*vertical-align: middle;
+    padding-top: 3px;*/
+}
+
+.tab-misc-btn:hover .screenshots-image {
+    content: url(../images/icon-screenshots-h.png);
+}
+
+.tab-misc-btn.active .screenshots-image {
+    content: url(../images/icon-screenshots-a.png);
+}
+
+#installed-tab {
+    margin-left: 10px;
+}
+
+.home-text {
+    height: 25px;
+    padding-left: 5px;
+    vertical-align: top;
+}
+
+.home-image {
+    background-image: url(../images/iconbtn-home.png);
+    padding-left: 8px;
+}
+
+.main-btn:hover .home-image {
+    background-image: url(../images/iconbtn-home-h.png);
+}
+
+.main-btn.active .home-image {
+    background-image: url(../images/iconbtn-home-a.png);
+}
+
+.main-btn:focus .home-image {
+    background-image: url(../images/iconbtn-home-a.png);
+}
+
+.explore-text {
+    margin-left: 5px;
+}
+
+.explore-image {
+    background-image: url(../images/iconbtn-explore.png);
+    margin-left: 25px;
+}
+
+.retail-dependency-missing {
+    filter: grayscale(60%);
+}
+
+.main-btn:hover .explore-image {
+    background-image: url(../images/iconbtn-explore-h.png);
+}
+
+.main-btn.active .explore-image {
+    background-image: url(../images/iconbtn-explore-a.png);
+}
+
+.main-btn:focus .explore-image {
+    background-image: url(../images/iconbtn-explore-a.png);
+}
+
+.develop-text {
+    margin-left: 5px;
+}
+
+.develop-image {
+    background-image: url(../images/iconbtn-develop.png);
+    margin-left: 25px;
+}
+
+.main-btn:hover .develop-image {
+    background-image: url(../images/iconbtn-develop-h.png);
+}
+
+.main-btn.active .develop-image {
+    background-image: url(../images/iconbtn-develop-a.png);
+}
+
+.main-btn:focus .develop-image {
+    background-image: url(../images/iconbtn-develop-a.png);
+}
+
+.main-btn.tab-trouble {
+    float: right;
+    margin-right: 40px;
+}
+
+.trouble-image {
+    background-image: url(../images/iconbtn-tshoot.png);
+    margin-left: 25px;
+}
+
+.main-btn:hover .trouble-image {
+    background-image: url(../images/iconbtn-tshoot-h.png);
+}
+
+.main-btn.active .trouble-image {
+    background-image: url(../images/iconbtn-tshoot-a.png);
+}
+
+.main-btn:focus .trouble-image {
+    background-image: url(../images/iconbtn-tshoot-a.png);
+}
+
+/* -------------------------- Settings for the main window view ----------------------------------*/
+
+.main-container { /* Let's make sure the mod list takes up the entire window and scrolls only vertically. */
+    position: absolute;
+    top: 78px;
+    bottom: 7px;
+    width: calc(100% - 14px);
+    overflow-y: auto;
+    /*background-image: url(../images/BG.png);
+    background-repeat: repeat;
+    box-shadow: inset 0px 13px 15px -10px rgba(0,0,0,1),
+                inset 0px -13px 15px -10px rgba(0,0,0,1),
+                inset 13px 0px 15px -10px rgba(0,0,0,1),
+                inset -13px 0px 15px -10px rgba(0,0,0,1);*/
+}
+
+.main-container .main-shadow-effect {
+    position: fixed;
+    top: 78px;
+    bottom: 7px;
+    left: 7px;
+    right: 7px;
+    box-shadow: inset 0px 13px 15px -10px rgba(0,0,0,1),
+                inset 0px -13px 15px -10px rgba(0,0,0,1),
+                inset 13px 0px 15px -10px rgba(0,0,0,1),
+                inset -13px 0px 15px -10px rgba(0,0,0,1);
+    pointer-events: none;
+    /*z-index: -1;*/
+}
+
+.main-container .main-background {
+    position: fixed;
+    top: 78px;
+    bottom: 7px;
+    left: 7px;
+    right: 7px;
+    background-image: url(../images/BG.png);
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: -3;
+}
+
+.mod-container {
+    position: inherit;
+    /*z-index: -2;*/
+}
+
+.main-notice {
+    color: #fff;
+    margin-top: 10px;
+}
+
+.info-page input, .main-notice input, .info-page button, .main-notice button {
+    color: #000;
+}
+
+/* -------------------------- Settings for the main container scroll bar style ----------------------------------*/
+
+.scroll-style {
+    overflow-y: auto;
+}
+
+.scroll-style::-webkit-scrollbar {
+    width: 25px;
+    /*box-shadow: -6px 0px 15px 0px rgba(0,0,0,1); */
+}
+.scroll-style::-webkit-scrollbar-track {
+    background-color: #1c1c1c;    
+}
+.scroll-style::-webkit-scrollbar-thumb {
+    background-color: #515151;
+    border: 9px solid transparent;
+    border-radius: 18px;
+    background-clip: content-box;
+}
+.scroll-style::-webkit-scrollbar-thumb:hover {
+    background-color: #7c7c7c;
+}
+.scroll-style::-webkit-scrollbar-thumb:active {
+    background-color: #a6a6a6;
+}
+.scroll-style::-webkit-scrollbar-button {
+    background: #1c1c1c center no-repeat;
+    height: 15px;
+}
+.scroll-style::-webkit-scrollbar-button:vertical:increment {
+    background-image: url(../images/scrollbtn-down.png);
+}
+.scroll-style::-webkit-scrollbar-button:vertical:increment:hover {
+    background-image: url(../images/scrollbtn-down-h.png);
+}
+.scroll-style::-webkit-scrollbar-button:vertical:increment:active {
+    background-image: url(../images/scrollbtn-down-a.png);
+}
+.scroll-style::-webkit-scrollbar-button:vertical:decrement {
+    background-image: url(../images/scrollbtn-up.png);
+}
+.scroll-style::-webkit-scrollbar-button:vertical:decrement:hover {
+    background-image: url(../images/scrollbtn-up-h.png);
+}
+.scroll-style::-webkit-scrollbar-button:vertical:decrement:active {
+    background-image: url(../images/scrollbtn-up-a.png);
+}
+
+
+/* -------------------------- Settings for the general scroll bar style ----------------------------------*/
+
+.gen-scroll-style {
+    overflow-y: auto;
+}
+
+.gen-scroll-style::-webkit-scrollbar {
+    width: 25px;
+}
+.gen-scroll-style::-webkit-scrollbar-track {
+    background-color: #1c1c1c;    
+}
+.gen-scroll-style::-webkit-scrollbar-thumb {
+    background-color: #515151;
+    border: 9px solid transparent;
+    border-radius: 18px;
+    background-clip: content-box;
+}
+.gen-scroll-style::-webkit-scrollbar-thumb:hover {
+    background-color: #7c7c7c;
+}
+.gen-scroll-style::-webkit-scrollbar-thumb:active {
+    background-color: #a6a6a6;
+}
+.gen-scroll-style::-webkit-scrollbar-button {
+    background: #1c1c1c center no-repeat;
+    height: 15px;
+}
+.gen-scroll-style::-webkit-scrollbar-button:vertical:increment {
+    background-image: url(../images/scrollbtn-down.png);
+}
+.gen-scroll-style::-webkit-scrollbar-button:vertical:increment:hover {
+    background-image: url(../images/scrollbtn-down-h.png);
+}
+.gen-scroll-style::-webkit-scrollbar-button:vertical:increment:active {
+    background-image: url(../images/scrollbtn-down-a.png);
+}
+.gen-scroll-style::-webkit-scrollbar-button:vertical:decrement {
+    background-image: url(../images/scrollbtn-up.png);
+}
+.gen-scroll-style::-webkit-scrollbar-button:vertical:decrement:hover {
+    background-image: url(../images/scrollbtn-up-h.png);
+}
+.gen-scroll-style::-webkit-scrollbar-button:vertical:decrement:active {
+    background-image: url(../images/scrollbtn-up-a.png);
+}
+
+/* -------------------------- Settings that govern the mod node displays ----------------------------------*/
+
+.mod { /* Base settings for a single mod node */
+    display: inline-block;
+    position: relative;
+    margin: 12px;
+    margin-top: 24px;
+    height: auto;
+    width: auto;
+    box-shadow: 2px 2px 15px 0px rgba(0,0,0,1);
+}
+
+/* -------------------------- Settings to create the mod nodes ----------------------------------*/
+
+.mod-node .mod-title { /* This creates the mod title's red background box. */
+    background-color: #422626;
+    width: 150px;
+    height: 40px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 11px;
+
+    font-size: 0.8em;
+    color: white;
+    font: Arial, Helvetica, sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.mod-node .mod-title p { /* This creates the mod title's red background box. */
+
+
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+
+    margin: 0;
+    color: white;
+    font: Arial, Helvetica, sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.mod-node .mod-image { /* Div sets up the portait mod image properties. */
+    width: 150px;
+    height: 225px;
+}
+
+.mod-node .mod-image img {
+    max-width: 150px;
+    max-height: 225px;
+}
+
+.mod-node .mod-image .mod-logo-legacy {
+    max-height: 100px;
+}
+
+.mod-node .mod-logo-container { /* Make sure any drop shadows for legacy mod images stays within the portrait node */
+    position: absolute;
+    top: 25px;
+    overflow: hidden;
+}
+
+.mod-node .mod-logo-legacy { /* Support for legacy (landscape) mod images and makes them look nice over the stock portrait background. */
+    vertical-align: middle;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 0px -4px 5px 1px rgba(255,252,222,1),
+        0px 4px 5px 1px rgba(255,252,222,1),
+        0px -23px 30px 5px rgba(0,0,0,1),
+        0px 23px 30px 5px rgba(0,0,0,1);
+}
+
+.mod-node .no-logo { /* If a mod has no image, let's create a div for it anyway. */
+    display: inline-block;
+    max-width: 150px;
+    padding-bottom: 47.80%; /* 122px / 255px */
+    width: 100%;
+
+    background: rgb(100, 100, 100);
+}
+
+.mod-node .mod-notifier { /* Places the top-right mod status notifier. */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.mod-node .mod-status { /* Places the overlay for mod status on the Explore tab */
+    width: 150px;
+    height: 268px;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.60);
+}
+
+.mod-node .mod-banner { /* Div for containing banners on the Home tab */
+    width: 150px;
+    height: 268px;
+    position: absolute;
+    top: 0;
+}
+
+.mod-node .mod-banner-green { /* Places the overlay for installed mods on the Explore tab */
+    width: 100px;
+    height: 26px;
+    position: absolute;
+    top: 25px;
+    background-image: url(../images/mod-banner-green.png);
+    text-align: right;
+}
+
+.mod-node .mod-banner-blue { /* Places the overlay for installed mods on the Explore tab */
+    width: 100px;
+    height: 26px;
+    position: absolute;
+    top: 25px;
+    background-image: url(../images/mod-banner-blue.png);
+    text-align: right;
+}
+
+.mod-node .mod-banner-grey { /* Places the overlay for installed mods on the Explore tab */
+    width: 100px;
+    height: 26px;
+    position: absolute;
+    top: 25px;
+    background-image: url(../images/mod-banner-grey.png);
+    text-align: right;
+}
+
+.mod-node .mod-banner-orange { /* Places the overlay for installed mods on the Explore tab */
+    width: 100px;
+    height: 26px;
+    position: absolute;
+    top: 25px;
+    background-image: url(../images/mod-banner-orange.png);
+    text-align: right;
+}
+
+.mod-node .mod-banner-red { /* Places the overlay for installed mods on the Explore tab */
+    width: 100px;
+    height: 26px;
+    position: absolute;
+    top: 25px;
+    background-image: url(../images/mod-banner-red.png);
+    text-align: right;
+}
+
+.mod-node .mod-banner-yellow { /* Places the overlay for installed mods on the Explore tab */
+    width: 100px;
+    height: 26px;
+    position: absolute;
+    top: 25px;
+    background-image: url(../images/mod-banner-yellow.png);
+    text-align: right;
+}
+
+.mod-node .mod-banner span{ /* Places the overlay for installed mods on the Explore tab */
+    color: white;
+    position: relative;
+    top: 2px;
+    right: 9px;
+}
+
+.mod-node .actions { /* Div to detect mouse hover */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.mod-node .btn-wrapper { /* CENTER THE BUTTONS DAMMIT and darken the mod image on mouseover */
+    width: 100%;
+    height: 225px;
+    background-color: rgba(0,0,0,0.7);
+
+    padding-top: 30px;
+    text-align: center;
+}
+
+.mod-node .avail-cover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.mod-node .actions:hover, .mod-node.active .actions { /* Display the buttons on mouseover */
+    opacity: 1;
+}
+
+.mod-node .actions:hover ~ .mod-title, .mod-node.active .actions ~ .mod-title { /* Let's also lighten the red box around the mod title on mouseover */
+    background-color: #856d6d;
+    transition: all 0.3s ease-in-out;
+}
+
+.mod-node .mod-progress {
+    height: 3px;
+    background-color: #422626;
+    transition: all 0.3s ease-in-out;
+}
+
+.mod-node .actions:hover ~ .mod-progress, .mod-node.active .actions ~ .mod-progress { /* Let's also lighten the red box for the progress area */
+    background-color: #856d6d;
+    transition: all 0.3s ease-in-out;
+}
+
+.mod-node .mod-progress .bar {
+    position: relative;
+    height: 3px;
+    width: 0;
+
+    z-index: 999;
+    background: #fff;
+    box-shadow: 0 0 10px #fff;
+}
+
+/* -------------------------- Settings to create the mod nodes for the dev page ----------------------------------*/
+
+.dev-mod-node .mod-title { /* This creates the mod title's red background box. */
+    background-color: #422626;
+    width: 150px;
+    height: 40px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 11px;
+
+    font-size: 0.8em;
+    color: white;
+    font: Arial, Helvetica, sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.dev-mod-node .mod-title p { /* This creates the mod title's red background box. */
+
+
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+
+    margin: 0;
+    color: white;
+    font: Arial, Helvetica, sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+.dev-mod-node .mod-image { /* Div sets up the portait mod image properties. */
+    width: 150px;
+    height: 225px;
+}
+
+.dev-mod-node .mod-image img {
+    max-width: 150px;
+    max-height: 225px;
+}
+
+.dev-mod-node .mod-image .mod-logo-legacy {
+    max-height: 100px;
+}
+
+.dev-mod-node .mod-logo-container { /* Make sure any drop shadows for legacy mod images stays within the portrait node */
+    position: absolute;
+    top: 25px;
+    overflow: hidden;
+}
+
+.dev-mod-node .mod-logo-legacy { /* Support for legacy (landscape) mod images and makes them look nice over the stock portrait background. */
+    vertical-align: middle;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 0px -4px 5px 1px rgba(255,252,222,1),
+        0px 4px 5px 1px rgba(255,252,222,1),
+        0px -23px 30px 5px rgba(0,0,0,1),
+        0px 23px 30px 5px rgba(0,0,0,1);
+}
+
+.dev-mod-node .no-logo { /* If a mod has no image, let's create a div for it anyway. */
+    display: inline-block;
+    max-width: 150px;
+    padding-bottom: 47.80%; /* 122px / 255px */
+    width: 100%;
+
+    background: rgb(100, 100, 100);
+}
+
+.dev-mod-node .mod-notifier { /* Places the top-right mod status notifier. */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.dev-mod-node .actions { /* Div to detect mouse hover */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.dev-mod-node .btn-wrapper { /* CENTER THE BUTTONS DAMMIT and darken the mod image on mouseover */
+    width: 100%;
+    height: 225px;
+    background-color: rgba(0,0,0,0.7);
+
+    padding-top: 30px;
+    text-align: center;
+}
+
+.dev-mod-node .avail-cover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.dev-mod-node .mod-progress {
+    height: 3px;
+    background-color: #422626;
+    transition: all 0.3s ease-in-out;
+}
+
+.dev-mod-node .mod-progress .bar {
+    position: relative;
+    height: 3px;
+    width: 0;
+
+    z-index: 999;
+    background: #fff;
+    box-shadow: 0 0 10px #fff;
+}
+
+/* ----------------------------- This is the debug dropdown button section. ------------------------------- */
+
+.dropbtn {
+    background: url(../images/dropdown.png) no-repeat left top;
+    color: white;
+    padding: 0px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 51px;
+    height: 19px;
+}
+
+.dropbtn:hover {
+    background: url(../images/dropdown-h.png) no-repeat left top;
+    outline: none;
+}
+
+.dropbtn:focus {
+    background: url(../images/dropdown-a.png) no-repeat left top;
+    outline: none;
+}
+
+.dropdown {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    background-color: transparent;
+    width: 51px;
+    height: 19px;
+}
+
+.dropdown-content {
+    padding: 5px;
+    position: absolute;
+    background-color: #131313;
+    min-width: 150px;
+    box-shadow: 6px 6px 8px 0px rgba(0,0,0,1);
+    z-index: 100 !important;
+    border: 1px solid black;
+    top: 20px;
+}
+
+.dropdown-content button {
+    background-color: transparent;
+    color: #828282;
+    padding: 3px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 150px;
+    outline: none;
+    text-align: left;
+}
+
+.dropdown-content button:active {
+    color: white;
+}
+
+.dropdown-content button:hover {
+    background-color: rgba(117,169,210,0.3);
+    box-shadow: inset 0px 0px 16px 1px rgba(117,170,210,1);
+    color: rgb(220, 220, 220);
+}
+
+.dropdown-mod-btn {
+    display: inline-block;
+    position: relative;
+    right: 0;
+    width: 100px;
+    height: 43px;
+}
+
+.dropdown-mod-btn .dropdown-content {
+    top: 43px;
+}
+
+.show {
+    display: block;
+}
+
+/* ----------------------------- Here there be BUTTONS. Let's make them pretty. ------------------------------- */
+
+.dev-btn {
+    margin: 8px;
+    box-shadow: 4px 4px 3px #000000;
+}
+
+.btn-text {
+    color: white;
+    font-size: small;
+}
+
+.link-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    width: 100px;
+    font-family: Arial, Tahoma, Verdana, FreeSans, sans-serif;
+    font-size: 14px;
+    color: white;
+    border: 0;
+
+    background: 3px 5px no-repeat;
+    background-position: center;
+    height: 43px;
+}
+
+.mod-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 5px; /* Buttons need their space. They're shy. */
+    margin-bottom: 0px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    width: 100px;
+    font-family: Arial, Tahoma, Verdana, FreeSans, sans-serif;
+    font-size: 14px;
+    color: white;
+    border: 0;
+
+    background: 3px 5px no-repeat;
+    background-position: center;
+    height: 43px;
+}
+
+.mod-btn p {
+    padding: 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mod-btn:hover {
+    color: #efefef;
+}
+
+.mod-btn:active {
+    outline: none;
+    color: #a6a6a6;
+}
+
+.mod-btn:focus {
+    outline: none;
+}
+
+.mod-btn .small-btn-text {
+    font-size: 10px;
+    line-height: 1.1;
+    display: block;
+    color: white;
+}
+
+.btn-green { /* Settings that create the Play button */
+    background-image: url(../images/btn-green.png);
+}
+
+.btn-green:hover {
+    background-image: url(../images/btn-green-h.png);
+}
+
+.btn-green:active {
+    background-image: url(../images/btn-green-a.png);
+}
+
+.btn-grey { /* Settings that create the Details button */
+    background-image: url(../images/btn-grey.png);
+}
+
+.btn-grey:hover {
+    background-image: url(../images/btn-grey-h.png);
+}
+
+.btn-grey:active {
+    background-image: url(../images/btn-grey-a.png);
+}
+
+.btn-blue { /* Settings that create the Install button */
+    background-image: url(../images/btn-blue.png);
+}
+
+.btn-blue:hover {
+    background-image: url(../images/btn-blue-h.png);
+}
+
+.btn-blue:active {
+    background-image: url(../images/btn-blue-a.png);
+}
+
+.btn-red { /* Settings that create the Error button */
+    background-image: url(../images/btn-red.png);
+}
+
+.btn-red:hover {
+    background-image: url(../images/btn-red-h.png);
+}
+
+.btn-red:active {
+    background-image: url(../images/btn-red-a.png);
+}
+
+.btn-orange { /* Settings that create the FRED button */
+    background-image: url(../images/btn-orange.png);
+}
+
+.btn-orange:hover {
+    background-image: url(../images/btn-orange-h.png);
+}
+
+.btn-orange:active {
+    background-image: url(../images/btn-orange-a.png);
+}
+
+.btn-yellow {
+    background-image: url(../images/btn-yellow.png);
+}
+
+.btn-yellow:hover {
+    background-image: url(../images/btn-yellow-h.png);
+}
+
+.btn-yellow:active {
+    background-image: url(../images/btn-yellow-a.png);
+}
+
+.btn-link-red {
+    background-image: url(../images/btn-link-red.png);
+}
+
+.btn-link-red:hover {
+    background-image: url(../images/btn-link-red-h.png);
+}
+
+.btn-link-red:active {
+    background-image: url(../images/btn-link-red-a.png);
+}
+
+.btn-link-blue {
+    background-image: url(../images/btn-link-blue.png);
+}
+
+.btn-link-blue:hover {
+    background-image: url(../images/btn-link-blue-h.png);
+}
+
+.btn-link-blue:active {
+    background-image: url(../images/btn-link-blue-a.png);
+}
+
+.btn-link-grey {
+    background-image: url(../images/btn-link-grey.png);
+}
+
+.btn-link-grey:hover {
+    background-image: url(../images/btn-link-grey-h.png);
+}
+
+.btn-link-grey:active {
+    background-image: url(../images/btn-link-grey-a.png);
+}
+
+
+/* Details page */
+.details-container {
+    text-align: center;
+}
+
+#details-page .img-frame {
+    height: 300px;
+    max-width: 1070px;
+    background: rgb(100, 100, 100);
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+}
+
+#details-page .img-frame img{
+    height: 100%;
+    width: 100%;
+}
+
+#details-page .title-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px;
+    font-size: 14px;
+    text-align: left;
+}
+
+#details-page .title-frame h1 {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+#details-page .date-frame {
+    margin-left: 10px;
+    display: inline-block;
+    margin-top: 8px;
+    margin-right: 20px;
+}
+
+#details-page .short-frame {
+    margin-top: 0px;
+}
+
+#details-page .details-btns {
+    text-align: left;
+}
+
+#details-page .mod-desc {
+    margin: 8px;
+    margin-top: 12px;
+    text-align: left;
+}
+
+/* Popup */
+.popup-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 800px;
+    height: 400px;
+
+    margin-left: -400px;
+    margin-top: -200px;
+
+    background-color: #101010;
+    padding: 5px;
+
+    z-index: 1000;
+
+    box-shadow: inset 0px 7px 10px -10px rgba(179,179,179,1),
+                inset -7px 0px 10px -10px rgba(179,179,179,1),
+                inset 7px 0px 10px -10px rgba(179,179,179,1),
+                0px 7px 15px 0px rgba(0,0,0,1);
+}
+
+@media (max-width: 800px) {
+    .popup {
+        width: 100%;
+        margin-left: 0;
+        left: 0;
+    }
+}
+
+.popup .title {
+    color: #fff;
+    margin-left: 5px;
+}
+
+.popup .content {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    overflow-y: auto;
+    color: #fff;
+
+    padding: 5px 15px;
+    background: #2e2e2e;
+}
+
+.popup .content.iframe {
+    padding: 0;
+    overflow: hidden;
+}
+
+.popup .content > iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.popup .row:nth-child(even) {
+    background: #444444;
+}
+
+.mod-prog-label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #bbbbbb;
+}
+
+.mod-prog-bar {
+    height: 10px;
+    border: 1px solid black;
+    margin-top: 4px;
+
+    background: #ddd;
+}
+
+.mod-prog-bar .inner {
+    background: #1c4499;
+    height: 100%;
+}
+
+.mod-prog-bar.complete .inner {
+    background: #3c991c;
+}
+
+.mod-prog-status {
+    font-size: 12px;
+    height: 100%;
+    line-height: 100%;
+    margin-top: 4px;
+}
+
+/* drawer */
+.settings-container .control-label {
+    padding-top: 0px;
+
+}
+
+.kn-drawer {
+    background-color: rgba(140, 140, 140, 0.37);
+
+}
+
+.kn-drawer .title {
+    cursor: pointer;
+    padding-right: 10px;
+    background-color: #636262;
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.kn-drawer .title .text {
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+    font-size: 20px;
+}
+
+.kn-drawer .title .line {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 13px;
+    width: calc(100% - 225px);
+    border-top: 2px solid white;
+}
+
+.kn-drawer .title .fa {
+    float: right;
+    margin-top: 5px;
+}
+
+.kn-drawer .content {
+    visibility: hidden;
+}
+
+.kn-drawer .content.open {
+    visibility: visible;
+}
+
+.kn-drawer .drawer-exp {
+    visibility: visible;
+    position: absolute;
+    width: 495px;
+    text-align: center;
+}
+
+.kn-drawer .content.open .settings-exp.drawer-exp {
+    display: none;
+}
+
+.kn-drawer .content-wrapper {
+    margin-top: 10px;
+}
+
+.kn-drawer .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+    padding-right: 10px;
+}
+
+.kn-drawer .neb-input {
+    width: 100%;
+}
+
+.kn-drawer .neb-btns {
+    width: inherit;
+}
+
+.kn-drawer .neb-btns .mod-btn {
+    margin: 0 auto;
+    height: 50px;
+}
+
+.checklist {
+    background: white;
+    padding: 5px 5px 5px 25px;
+    height: 200px;
+    overflow: auto;
+
+    color: #000;
+}
+
+.kn-global-flags .checklist {
+    padding-left: 5px;
+}
+
+.checklist .radio-inline {
+    padding-top: 0;
+}
+
+.devel-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.devel-page .mlist {
+    position: fixed;
+    top: 80px;
+    left: 8px;
+    bottom: 8px;
+    width: 200px;
+
+    background: #2e2e2e;
+    padding: 10px 0;
+
+    box-shadow: inset 0px 13px 15px -10px rgba(0,0,0,1),
+                inset 0px -13px 15px -10px rgba(0,0,0,1),
+                inset 13px 0px 15px -10px rgba(0,0,0,1),
+                inset -13px 0px 15px -10px rgba(0,0,0,1);
+}
+
+.devel-page .mlist > a {
+    display: block;
+    padding: 3px 8px;
+    text-decoration: none;
+
+    color: #eee;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.devel-page .mlist > a:hover {
+    color: #fff;
+}
+
+.devel-page .mlist > a.active {
+    color: #fff;
+    background: rgb(110, 130, 200);
+    box-shadow: inset 0px 0px 15px -10px rgba(0,0,0,1),
+                inset 0px 0px 15px -10px rgba(0,0,0,1),
+                inset 13px 0px 15px -10px rgba(0,0,0,1),
+                inset -13px 0px 15px -10px rgba(0,0,0,1)
+}
+
+.devel-page .content-pane {
+    position: absolute;
+    top: 0;
+    left: 200px;
+    width: calc(100% - 200px);
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.devel-page .logo-box {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 214px;
+
+    padding: 5px;
+}
+
+.logo-box .mod-btn {
+    margin: 0px;
+}
+
+.devel-page .mod-value {
+    margin-left: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.devel-page select.form-control.mod-version {
+    height: 25px;
+    width: 100px;
+    border-radius: 0px;
+    padding: 0px;
+    display: inline;
+    margin-left: 5px;
+}
+
+.devel-page span.version-link {
+    word-wrap: break-word;
+}
+
+.devel-page .form-box {
+    position: absolute;
+    top: 0;
+    left: 220px;
+    bottom: 0;
+
+    width: calc(100% - 220px);
+}
+
+.devel-page .tabcorner {
+    background-image: url(../images/tabbox-corner.png);
+    height: 61px;
+    width: 61px;
+    position: fixed;
+    left: 366px;
+
+}
+
+.devel-page .dev-tabbox {
+    background-color: #1c1c1c;
+    height: 61px;
+    padding-left: 5px;
+    box-shadow: 0px 7px 15px 0px rgba(0,0,0,1);
+
+}
+
+.devel-page .form-content {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.devel-page .form-group img {
+    max-width: 100%;
+    max-height: 150px;
+}
+
+.devel-page .dev-tabbar {
+    overflow: hidden;
+    position: relative;
+    height: 28px;
+    background-color: #1c1c1c;
+    box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,1)
+}
+
+.devel-page .dev-tabbar > a {
+    text-decoration: none !important;
+    color: #fff !important;
+    background-image: url(../images/tabedge-i.png);
+    display: inline-block;
+    padding: 6px;
+    padding-left: 10px;
+    padding-right: 20px;
+    width: 150px;
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.devel-page .dev-tabbar > a.active {
+    background-image: url(../images/tabedge-a.png);
+}
+
+.devel-page .dev-tabbar-arrows {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 7px;
+    margin-right: 5px;
+}
+
+.devel-page .dev-tabbar-arrows a {
+    color: #fff;
+}
+
+.devel-page .table td {
+    padding: 2px;
+}
+
+.buttonpane {
+    background: #535353;
+    box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.75);
+    margin-bottom: 8px;
+}
+
+.devmanagement label {
+    display: inline-block;
+    color: #bbb;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    padding-top: 7px;
+    background-image: url(../images/tabsquare-i.png);
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+.devmanagement label.active {
+    color: white;
+    background-image: url(../images/tabsquare-a.png);
+}
