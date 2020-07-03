@@ -7,19 +7,15 @@ Each stage of the script will confirm if you want to continue, giving you the op
 The script will ask where you want to install, it is recommended to keep the default. The files will be copied and built in-place. You will be given the option to install the knossos version included with this script or pull the latest version.
 
 ## Usage
-```chmod +x knossos.sh```
-
+```chmod +x knossos.sh```  
+<br>
 <u>**Live run:**</u>  
 This will prompt you with a series of questions and perform the actions, making changes to your filesystem.  
-```
-./knossos.sh
-```
-<br><br>
+```./knossos.sh```  
+<br>
 <u>**Debug:**</u>  
 This will prompt you with a series of questions but will not actually perform them. It will echo the command that would be run so you can do a dry run first.  
-```
-./knossos.sh debug
-```
+```./knossos.sh debug```
 
 ## Packages for Reference (installed automatically):
 <u>**All Dependencies**</u>
