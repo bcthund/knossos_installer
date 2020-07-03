@@ -6,6 +6,9 @@ Each stage of the script will confirm if you want to continue, giving you the op
 
 The script will ask where you want to install, it is recommended to keep the default. The files will be copied and built in-place. You will be given the option to install the knossos version included with this script or pull the latest version.
 
+See also:
+  * [fresh_install](https://github.com/bcthund/fresh_install)
+
 ## Usage
 ```chmod +x knossos.sh```  
 <br>
