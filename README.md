@@ -5,6 +5,17 @@ Each stage of the script will confirm if you want to continue, giving you the op
 
 The script will ask where you want to install, it is recommended to keep the default. The files will be copied and built in-place. You will be given the option to install the knossos version included with this script or pull the latest version.
 
+# Usage
+<code>chmod +x knossos.sh</code>
+
+Live run:
+This will prompt you with a series of questions and perform the actions, making changes to your filesystem.
+<code>./knossos.sh</code>
+
+Debug:
+This will prompt you with a series of questions but will not actually perform them. It will echo the command that would be run so you can do a dry run first.
+<code>./knossos.sh debug</code>
+
 # Packages for Reference (installed automatically):
 <pre>
   nodejs
@@ -21,7 +32,7 @@ The script will ask where you want to install, it is recommended to keep the def
 </pre>
 
 # Addons
-This is a launcher for Freespace Open and game created using the FSO engine. The launcher has the ability to add and remove games. The following is a list of my preferred games.
+This is a launcher for Freespace Open and game created using the FSO engine. The launcher has the ability to add and remove games from within the launcher. The following is a list of my preferred games.
 
 <pre>
   Freespace Open
