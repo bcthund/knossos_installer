@@ -54,11 +54,7 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
         if [ "$install" != "${install#[1]}" ] ;then install_dir="$HOME/Games/knossos"; fi
         if [ "$install" != "${install#[2]}" ] ;then printf "${BLUE}Directory? ${NC}"; read install_dir; fi
         
-        # Create Directories
-        echo
-        #cmd "sudo cp --preserve=all -r ./src/knossos-develop ./src/knossos_tmp/build"
-        #cmd "mkdir -pv ./src/knossos_tmp/build"
-        
+    # Create Directories
         remdir="n"
         if [ -d "$install_dir" ] ;then
             printf "${BLUE}Directory already exists, remove first? ${NC}"
@@ -70,7 +66,6 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
         fi
         
         if [ ! -d "$install_dir" ] ;then
-        
             if [ "$remdir" != "${remdir#[Nn]}" ] ;then
                 printf "${BLUE}Directory '$install_dir' doesn't exist, create (y/n)? ${NC}"
                 read answer
