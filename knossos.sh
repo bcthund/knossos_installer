@@ -119,14 +119,9 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
         fi
         
         echo
-        printf "${PURPLE}Source [knossos]: ${BLUE}Add yarn source${NC}"
+        printf "${PURPLE}Source [knossos]: ${BLUE}Add yarn source and update apt${NC}"
         echo -n "${GREEN} (y/n)? ${NC}"; read answer; if [ "$answer" != "${answer#[Yy]}" ] ;then
-            cmd "echo "deb [trusted=yes] https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list"
-        fi
-        
-        echo
-        printf "${PURPLE}Source [knossos]: ${BLUE}Update apt${NC}"
-        echo -n "${GREEN} (y/n)? ${NC}"; read answer; if [ "$answer" != "${answer#[Yy]}" ] ;then
+            cmd "echo 'deb [trusted=yes] https://dl.yarnpkg.com/debian/ stable main' | sudo tee /etc/apt/sources.list.d/yarn.list"
             cmd "sudo apt update"
         fi
         
