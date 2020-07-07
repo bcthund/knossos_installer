@@ -70,10 +70,11 @@ ctrl_c() { echo -e; echo -e; exit 0; }
 trap ctrl_c INT
 
 echo -e
-echo -e -n "${PURPLE}Compile Knossos (y/n)? ${NC}"
+echo -e -n "${PURPLE}Compile Knossos (y/n/a)? ${NC}"
 read answer
 echo -e
-if [ "$answer" != "${answer#[Yy]}" ] ;then
+if [ "$answer" != "${answer#[YyAa]}" ] ;then
+    if [ "$answer" != "${answer#[Aa]}" ] ;then answer2="y"; else answer2=""; fi
 
     # Set Install Directory
         install_dir="$HOME/knossos"
@@ -91,9 +92,9 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     # Create Directories
         remdir="n"
         if [ -d "$install_dir" ] ;then
-            printf "${PURPLE}Source [knossos]: ${BLUE}Directory already exists, remove first? ${NC}"
-            read answer
-            if [ "$answer" != "${answer#[Yy]}" ] ;then
+            printf "${PURPLE}Source [knossos]: ${BLUE}Directory already exists, remove first${NC}"
+            if [ "$answer" != "${answer#[Yy]}" ] ;then printf " ${GREEN}(y/n)? ${NC} "; read answer2; else echo; fi
+            if [ "$answer2" != "${answer2#[Yy]}" ] ;then
                 cmd "sudo rm -rf $install_dir"
                 remdir="y"
             fi
@@ -101,10 +102,10 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
         
         if [ ! -d "$install_dir" ] ;then
             if [ "$remdir" != "${remdir#[Nn]}" ] ;then
-                printf "${PURPLE}Source [knossos]: ${BLUE}Directory '$install_dir' doesn't exist, create (y/n)? ${NC}"
-                read answer
+                printf "${PURPLE}Source [knossos]: ${BLUE}Directory '$install_dir' doesn't exist, create${NC}"
+                if [ "$answer" != "${answer#[Yy]}" ] ;then printf " ${GREEN}(y/n)? ${NC} "; read answer2; else echo; fi
             fi
-            if [ "$answer" != "${answer#[Yy]}" ] || [ "$remdir" != "${remdir#[Yy]}" ] ;then
+            if [ "$answer2" != "${answer2#[Yy]}" ] || [ "$remdir" != "${remdir#[Yy]}" ] ;then
                 cmd "mkdir -pv $install_dir"
             else
                 printf "${RED}Aborting!${NC}\n"
@@ -115,31 +116,35 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     # Dependencies
         echo -e
         printf "${PURPLE}Source [knossos]: ${BLUE}Add key for yarn${NC}"
-        echo -e -n "${GREEN} (y/n)? ${NC}"; read answer; if [ "$answer" != "${answer#[Yy]}" ] ;then
+        if [ "$answer" != "${answer#[Yy]}" ] ;then printf " ${GREEN}(y/n)? ${NC} "; read answer2; else echo; fi
+        if [ "$answer2" != "${answer2#[Yy]}" ] ;then
             cmd "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -"
         fi
         
         echo -e
         printf "${PURPLE}Source [knossos]: ${BLUE}Add yarn source and update apt${NC}"
-        echo -e -n "${GREEN} (y/n)? ${NC}"; read answer; if [ "$answer" != "${answer#[Yy]}" ] ;then
+        if [ "$answer" != "${answer#[Yy]}" ] ;then printf " ${GREEN}(y/n)? ${NC} "; read answer2; else echo; fi
+        if [ "$answer2" != "${answer2#[Yy]}" ] ;then
             cmd "echo -e 'deb [trusted=yes] https://dl.yarnpkg.com/debian/ stable main' | sudo tee /etc/apt/sources.list.d/yarn.list"
             cmd "sudo apt update"
         fi
         
         echo -e
         printf "${PURPLE}Source [knossos]: ${BLUE}Install apt packages${NC}"
-        echo -e -n "${GREEN} (y/n)? ${NC}"; read answer; if [ "$answer" != "${answer#[Yy]}" ] ;then
+        if [ "$answer" != "${answer#[Yy]}" ] ;then printf " ${GREEN}(y/n)? ${NC} "; read answer2; else echo; fi
+        if [ "$answer2" != "${answer2#[Yy]}" ] ;then
             cmd "sudo apt install nodejs npm python3-wheel python3-setuptools pyqt5-dev pyqt5-dev-tools qttools5-dev-tools qt5-default pipenv yarn ninja-build"
         fi
+        
     
     # Grab Source
         echo -e
-        echo -e -n "${PURPLE}Source [knossos]: ${BLUE}Pull current source from git (requires internet connection) (y/n)? ${NC}"
-        read source
-        if [ "$source" != "${source#[Yy]}" ] ;then
-            cmd "git clone https://github.com/ngld/knossos.git $install_dir"
-        else
+        echo -e -n "${PURPLE}Source [knossos]: ${BLUE}Use provided source snapshot${NC}"
+        if [ "$answer" != "${answer#[Yy]}" ] ;then printf " ${GREEN}(y/n)? ${NC} "; read answer2; else echo; fi
+        if [ "$answer2" != "${answer2#[Yy]}" ] ;then
             cmd "cp --preserve=all -rT ./src/knossos-develop $install_dir"
+        else
+            cmd "git clone https://github.com/ngld/knossos.git $install_dir"
         fi
     
     # Knossos: build and install
@@ -157,35 +162,32 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
     
         echo -e
         printf "${PURPLE}Source [knossos]: ${BLUE}Install pipenv${NC}"
-        echo -e -n "${GREEN} (y/n)? ${NC}"; read answer; if [ "$answer" != "${answer#[Yy]}" ] ;then
+        if [ "$answer" != "${answer#[Yy]}" ] ;then printf " ${GREEN}(y/n)? ${NC} "; read answer2; else echo; fi
+        if [ "$answer2" != "${answer2#[Yy]}" ] ;then
             cmd "pipenv install"
         fi
     
         # Knossos says to do this but it doesn't work, also doesn't seem necessary
         #printf "${BLUE}Install yarn${NC}"
-        #echo -e -n "${GREEN} (y/n)? ${NC}"; read answer; if [ "$answer" != "${answer#[Yy]}" ] ;then
+        #if [ "$answer" != "${answer#[Yy]}" ] ;then printf " ${GREEN}(y/n)? ${NC} "; read answer2; else echo; fi
+        #if [ "$answer2" != "${answer2#[Yy]}" ] ;then
         #    echo -e "yarn install"
         #    cmd "yarn install"
         #fi
         
         echo -e
         printf "${PURPLE}Source [knossos]: ${BLUE}Install npm modules${NC}"
-        echo -e -n "${GREEN} (y/n)? ${NC}"; read answer; if [ "$answer" != "${answer#[Yy]}" ] ;then
+        if [ "$answer" != "${answer#[Yy]}" ] ;then printf " ${GREEN}(y/n)? ${NC} "; read answer2; else echo; fi
+        if [ "$answer2" != "${answer2#[Yy]}" ] ;then
             cmd "npm install"
         fi
         
         echo -e
         printf "${PURPLE}Source [knossos]: ${BLUE}Configure/Build Knossos${NC}"
-        echo -e -n "${GREEN} (y/n)? ${NC}"; read answer; if [ "$answer" != "${answer#[Yy]}" ] ;then
+        if [ "$answer" != "${answer#[Yy]}" ] ;then printf " ${GREEN}(y/n)? ${NC} "; read answer2; else echo; fi
+        if [ "$answer2" != "${answer2#[Yy]}" ] ;then
             printf "${YELLOW}Watch for 'Writing build.ninja' for success.${NC}\n"
             cmd "pipenv run python configure.py"
-        fi
-    
-    # Test Run
-        echo -e
-        printf "${PURPLE}Source [knossos]: ${BLUE}Test Knossos${NC}"
-        echo -e -n "${GREEN} (y/n)? ${NC}"; read answer; if [ "$answer" != "${answer#[Yy]}" ] ;then
-            cmd "ninja run"
         fi
     
     cmd "cd '${working_dir}'";
