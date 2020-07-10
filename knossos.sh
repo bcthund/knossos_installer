@@ -91,7 +91,7 @@ if [ "$answer" != "${answer#[YyAa]}" ] ;then
         printf "${YELLOW}\t2) Custom${NC}\n"
         echo -e
         printf "${GREEN}Selection? ${NC}"
-        read install
+        if [ "$answer" != "${answer#[Yy]}" ] ;then read install; else install="1"; fi
         if [ "$install" != "${install#[1]}" ] ;then install_dir="$HOME/Games/knossos"; fi
         if [ "$install" != "${install#[2]}" ] ;then printf "${BLUE}Directory? ${NC}"; read install_dir; fi
         
