@@ -24,6 +24,8 @@ working_dir=$PWD
 DEBUG=false
 VERBOSE=false
 IN_TESTING=false
+EXTRACT=true
+TMP_DIR=""
 FLAGS=""
 OTHER_ARGUMENTS=""
 
@@ -54,8 +56,15 @@ do
         echo -e "  -v, --verbose         print commands being run before running them"
         echo -e "  -d, --debug           print commands to be run but do not execute them"
         echo -e "  --in-testing          Enable use of in-testing features"
+        #echo -e "  --tmp=DIRECTORY       not used, passed from fresh_install script"
         echo -e "${NC}"
         exit
+        shift # Remove from processing
+        ;;
+        --tmp=*)
+        EXTRACT=false
+        TMP_DIR="$(echo ${arg#*=} | sed 's:/*$::')"
+        FLAGS="$FLAGS--tmp=${TMP_DIR} "
         shift # Remove from processing
         ;;
         *)
@@ -95,8 +104,8 @@ if [ "$answer" != "${answer#[YyAa]}" ] ;then
         if [ "$answer" != "${answer#[Yy]}" ] ;then read install; else install="1"; fi
         if [ "$install" != "${install#[1]}" ] ;then install_dir="$HOME/Games/knossos"; fi
         if [ "$install" != "${install#[2]}" ] ;then printf "${BLUE}Directory? ${NC}"; read install_dir; fi
-        
-    # Create Directories
+    
+    # Create Directories - Knossos needs to be 'built' in-place in its final destination folder
         remdir="n"
         if [ -d "$install_dir" ] ;then
             printf "${PURPLE}Source [knossos]: ${BLUE}Directory already exists, remove first${NC}"
